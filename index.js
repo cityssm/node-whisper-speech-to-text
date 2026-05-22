@@ -6,6 +6,14 @@ import Debug from 'debug';
 import { DEBUG_NAMESPACE } from './debug.config.js';
 const debug = Debug(`${DEBUG_NAMESPACE}:index`);
 export const WHISPER_PATH = 'whisper';
+/**
+ * Transcribes the audio from the specified sound file using OpenAI's Whisper model and returns the transcribed text.
+ * @param pathToSoundFile - The path to the sound file to be transcribed.
+ * This can be an absolute path or a relative path from the current working directory.
+ * The file must be in a format supported by the Whisper model (e.g., WAV, MP3, etc.).
+ * @param whisperOptions - Optional settings for the Whisper model, such as the model size and language.
+ * @returns A promise that resolves to the transcribed text.
+ */
 export default async function speechToText(pathToSoundFile, whisperOptions) {
     // Output to the temporary directory to avoid cluttering the project directory with transcriptions. The output file will be automatically deleted after processing.
     const outputDirectory = os.tmpdir();
