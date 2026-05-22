@@ -36,7 +36,6 @@ export default async function speechToText(pathToSoundFile, whisperOptions) {
     whisperArguments.push(pathToSoundFile);
     const debugCommand = `${options.whisperPath} ${whisperArguments.join(' ')}`;
     debug(`Executing command: ${debugCommand}`);
-    let errorOutput;
     // eslint-disable-next-line promise/avoid-new
     await new Promise((resolve, reject) => {
         execFile(options.whisperPath, whisperArguments, (error, stdout, stderr) => {
@@ -46,7 +45,6 @@ export default async function speechToText(pathToSoundFile, whisperOptions) {
             }
             else if (stderr) {
                 debug(`Whisper command stderr: ${stderr}`);
-                errorOutput = stderr;
             }
             resolve(stdout.trim());
         });

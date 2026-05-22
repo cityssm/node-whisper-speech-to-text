@@ -1,8 +1,14 @@
 # OpenAI Whisper for Node
 
+[![DeepSource](https://app.deepsource.com/gh/cityssm/node-whisper-speech-to-text.svg/?label=active+issues&show_trend=true&token=5bcKTrYXN2Yhxo2JumotW1BK)](https://app.deepsource.com/gh/cityssm/node-whisper-speech-to-text/)
+[![codecov](https://codecov.io/gh/cityssm/node-whisper-speech-to-text/graph/badge.svg?token=DQW707DSN9)](https://codecov.io/gh/cityssm/node-whisper-speech-to-text)
+
+**Locally converts recorded audio, like WAV files and MP3s, to text using OpenAI Whisper.**
+
 ## Prerequisites
 
-This package requires a few tools to work.
+Like other Node wrappers around OpenAI Whisper,
+this package requires a few tools to work.
 
 ### Python
 
