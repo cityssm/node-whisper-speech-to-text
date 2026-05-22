@@ -46,3 +46,35 @@ jobs:
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
           ./codecov -t ${CODECOV_TOKEN}
+
+  Windows:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22]
+
+    name: Windows - Node ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+
+      - name: Install Global Dependencies
+        run: npm install -g c8
+
+      - name: Install FFMpeg
+        run: choco install ffmpeg
+
+      - name: Install Whisper
+        run: pip install -U openai-whisper
+
+      - name: Install Application (CI)
+        run: npm ci
+
+      - name: Run Coverage Testing
+        run: npm run coverage
