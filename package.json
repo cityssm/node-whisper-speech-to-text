@@ -1,0 +1,41 @@
+{
+  "name": "@cityssm/whisper-speech-to-text",
+  "version": "0.1.0",
+  "description": "Locally convert audio files to text using OpenAI Whisper",
+  "keywords": [
+    "openai",
+    "whisper",
+    "speech-to-text"
+  ],
+  "homepage": "https://github.com/cityssm/node-whisper-speech-to-text#readme",
+  "bugs": {
+    "url": "https://github.com/cityssm/node-whisper-speech-to-text/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityssm/node-whisper-speech-to-text.git"
+  },
+  "license": "MIT",
+  "author": "The Corporation of the City of Sault Ste. Marie",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "main": "index.js",
+  "files": [
+    "index.*"
+  ],
+  "scripts": {
+    "test": "node --test test/test.js"
+  },
+  "dependencies": {
+    "debug": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.13",
+    "@types/node": "^25.9.1",
+    "eslint-config-cityssm": "^40.1.0",
+    "prettier-config-cityssm": "^2.1.2"
+  }
+}

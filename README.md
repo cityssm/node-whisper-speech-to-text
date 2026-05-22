@@ -1,0 +1,3 @@
+# OpenAI Whisper for Node
+
+
