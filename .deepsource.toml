@@ -1,0 +1,11 @@
+version = 1
+
+test_patterns = [
+  "test/**"
+]
+
+[[analyzers]]
+name = "javascript"
+
+  [analyzers.meta]
+  environment = ["nodejs"]

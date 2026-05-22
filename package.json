@@ -24,9 +24,12 @@
   },
   "main": "index.js",
   "files": [
-    "index.*"
+    "debug.*",
+    "index.*",
+    "types.*"
   ],
   "scripts": {
+     "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test test/test.js",
     "test": "node --test test/test.js"
   },
   "dependencies": {
