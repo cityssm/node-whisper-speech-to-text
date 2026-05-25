@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/whisper-speech-to-text",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Locally converts recorded audio, like WAV files and MP3s, to text using OpenAI Whisper.",
   "keywords": [
     "openai",
@@ -21,7 +21,7 @@
   "type": "module",
   "exports": {
     ".": "./index.js",
-    "./debug": "./debug.js"
+    "./debug": "./debug.config.js"
   },
   "main": "index.js",
   "files": [
