@@ -3,6 +3,7 @@
 import { execFile } from 'node:child_process'
 import fs from 'node:fs/promises'
 import os from 'node:os'
+import path from 'node:path'
 
 import Debug from 'debug'
 
@@ -93,11 +94,12 @@ export default async function speechToText(
     'Whisper command executed successfully, reading transcription from output file'
   )
 
+  const outputFileName = `${path.basename(pathToSoundFile, path.extname(pathToSoundFile))}.txt`
+
+  debug(`Expected output file name: ${outputFileName}`)
+
   // The output file will have the same name as the input file but with a .txt extension, and it will be located in the temporary directory.
-  const outputFilePath = `${outputDirectory}/${pathToSoundFile
-    .split('/')
-    .pop()
-    ?.replace(/\.[^/.]+$/, '')}.txt`
+  const outputFilePath = path.join(outputDirectory, outputFileName)
 
   debug(`Expected output file path: ${outputFilePath}`)
 
