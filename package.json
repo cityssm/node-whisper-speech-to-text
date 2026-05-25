@@ -25,7 +25,7 @@
   },
   "main": "index.js",
   "files": [
-    "debug.*",
+    "debug.config.*",
     "index.*",
     "types.*"
   ],
