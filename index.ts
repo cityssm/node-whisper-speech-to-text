@@ -71,7 +71,11 @@ export default async function speechToText(
     whisperArguments.push('--language', options.language)
   }
 
-  whisperArguments.push(pathToSoundFile)
+  const normalizedPathToSoundFile = path.normalize(pathToSoundFile)
+
+  debug(`Normalized path to sound file: ${normalizedPathToSoundFile}`)
+
+  whisperArguments.push(normalizedPathToSoundFile)
 
   const debugCommand = `${options.whisperPath} ${whisperArguments.join(' ')}`
   debug(`Executing command: ${debugCommand}`)
@@ -94,7 +98,7 @@ export default async function speechToText(
     'Whisper command executed successfully, reading transcription from output file'
   )
 
-  const outputFileName = `${path.basename(pathToSoundFile, path.extname(pathToSoundFile))}.txt`
+  const outputFileName = `${path.basename(normalizedPathToSoundFile, path.extname(normalizedPathToSoundFile))}.txt`
 
   debug(`Expected output file name: ${outputFileName}`)
 

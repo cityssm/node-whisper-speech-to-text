@@ -34,7 +34,9 @@ export default async function speechToText(pathToSoundFile, whisperOptions) {
     if (options.language) {
         whisperArguments.push('--language', options.language);
     }
-    whisperArguments.push(pathToSoundFile);
+    const normalizedPathToSoundFile = path.normalize(pathToSoundFile);
+    debug(`Normalized path to sound file: ${normalizedPathToSoundFile}`);
+    whisperArguments.push(normalizedPathToSoundFile);
     const debugCommand = `${options.whisperPath} ${whisperArguments.join(' ')}`;
     debug(`Executing command: ${debugCommand}`);
     // eslint-disable-next-line promise/avoid-new
@@ -51,7 +53,7 @@ export default async function speechToText(pathToSoundFile, whisperOptions) {
         });
     });
     debug('Whisper command executed successfully, reading transcription from output file');
-    const outputFileName = `${path.basename(pathToSoundFile, path.extname(pathToSoundFile))}.txt`;
+    const outputFileName = `${path.basename(normalizedPathToSoundFile, path.extname(normalizedPathToSoundFile))}.txt`;
     debug(`Expected output file name: ${outputFileName}`);
     // The output file will have the same name as the input file but with a .txt extension, and it will be located in the temporary directory.
     const outputFilePath = path.join(outputDirectory, outputFileName);

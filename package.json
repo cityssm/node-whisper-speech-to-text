@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/whisper-speech-to-text",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Locally converts recorded audio, like WAV files and MP3s, to text using OpenAI Whisper.",
   "keywords": [
     "openai",
