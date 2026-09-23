@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.13",
-    "@types/node": "^25.9.1",
-    "eslint-config-cityssm": "^40.1.0",
-    "prettier-config-cityssm": "^2.1.2"
+    "@types/node": "^26.6.2",
+    "eslint-config-cityssm": "^54.0.0",
+    "prettier-config-cityssm": "^2.2.0"
   }
 }
