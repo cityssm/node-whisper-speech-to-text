@@ -39,8 +39,8 @@ export default async function speechToText(pathToSoundFile, whisperOptions) {
     whisperArguments.push(normalizedPathToSoundFile);
     const debugCommand = `${options.whisperPath} ${whisperArguments.join(' ')}`;
     debug(`Executing command: ${debugCommand}`);
-    // eslint-disable-next-line promise/avoid-new
     await new Promise((resolve, reject) => {
+        // eslint-disable-next-line runtime-cleanup/no-floating-child-processes
         execFile(options.whisperPath, whisperArguments, (error, stdout, stderr) => {
             if (error) {
                 debug(`Error executing whisper command: ${error.message}`);
@@ -59,7 +59,7 @@ export default async function speechToText(pathToSoundFile, whisperOptions) {
     const outputFilePath = path.join(outputDirectory, outputFileName);
     debug(`Expected output file path: ${outputFilePath}`);
     // Read the transcribed text from the output file and return it.
-    const transcription = await fs.readFile(outputFilePath, 'utf-8');
+    const transcription = await fs.readFile(outputFilePath, 'utf8');
     // Clean up the output file after reading the transcription.
     debug(`Cleaning up output file: ${outputFilePath}`);
     await fs.unlink(outputFilePath);
